@@ -8,8 +8,8 @@ namespace WebStore
 {
     public class Startup
     {
-        public IConfiguration Configuraton { get;  }
-        public Startup(IConfiguration Config) { Configuraton = Config; }
+        public IConfiguration Configuration { get;  }
+        public Startup(IConfiguration Config) { Configuration = Config; }
         public void ConfigureServices(IServiceCollection services)
         {
         }
@@ -24,7 +24,7 @@ namespace WebStore
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync(Configuration["CustomData"]);
             });
         }
     }
